@@ -11,19 +11,13 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BillItemResponse {
+public class ReturnItemResponse {
     private Long id;
     private Long medicineId;
     private String medicineName;
+    private Long batchId;
     private String batchNumber;
     private Integer quantity;
-    private BigDecimal unitPrice;
-    private BigDecimal gstPercentage;
-    private BigDecimal gstAmount;
-    private BigDecimal totalAmount;
+    private BigDecimal refundAmount;
 }
-
-
-
-
 
