@@ -24,10 +24,23 @@ mvn clean install
 
 4. Run the application:
 ```bash
-mvn spring-boot:run
+# Spring Boot automatically reads environment variables from the system
+# For local development, you can:
+
+# Option 1: Set environment variables manually in your IDE or system
+
+# Option 2: Use a .env loader (Linux/Mac):
+export $(cat .env | grep -v '^#' | xargs) && mvn spring-boot:run
+
+# Option 3: Use dotenv-cli (cross-platform):
+npm install -g dotenv-cli
+dotenv -e .env mvn spring-boot:run
+
+# Option 4: Use IntelliJ IDEA - it automatically loads .env files
+# Option 5: Use VS Code with the "DotENV" extension
 ```
 
-The application will automatically load environment variables from the `.env` file.
+**Note:** Spring Boot natively supports reading from environment variables. Deployment platforms (Railway, Render, etc.) set environment variables directly, which Spring Boot will read automatically.
 
 ## Deployment
 
